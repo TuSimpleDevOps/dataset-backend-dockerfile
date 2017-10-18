@@ -8,7 +8,7 @@ from config import send_mail, config
 
 try:
     payload = '{}'
-    r = requests.post('http://titanx15:5002/datasets/count', data=payload)
+    r = requests.post('http://localhost:5003/datasets/count', data=payload)
     assert r.status_code == 200
     print r.text
 except ConnectionError:
@@ -20,7 +20,7 @@ except AssertionError:
 
 try:
     payload = '{\"2017-09-28-12-18-13\":\"\"}'
-    r = requests.post('http://titanx15:5002/datasets/get', data=payload)
+    r = requests.post('http://localhost:5003/datasets/get', data=payload)
     assert r.status_code == 200
     print r.text
 except ConnectionError:

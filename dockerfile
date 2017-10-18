@@ -5,6 +5,7 @@ COPY . /
 EXPOSE 5002
 
 RUN pip install -r requirements.txt && \
-    pip install gunicorn
+    pip install gunicorn && \
+    echo -e "bind = '0.0.0.0:5001'\nworkers = 17" > ./config/dataset-backend.conf
 
 CMD gunicorn -c config/dataset-backend.conf app:app

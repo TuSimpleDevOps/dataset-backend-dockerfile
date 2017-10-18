@@ -6,6 +6,6 @@ EXPOSE 5002
 
 RUN pip install -r requirements.txt && \
     pip install gunicorn && \
-    echo -e "bind = '0.0.0.0:5002'\nworkers = 17" > ./config/dataset-backend.conf
+    echo "bind = '0.0.0.0:5002'\nworkers = 17" > ./config/dataset-backend.conf
 
 CMD gunicorn -c config/dataset-backend.conf app:app
